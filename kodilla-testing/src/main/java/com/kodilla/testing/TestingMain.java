@@ -19,18 +19,17 @@ public class TestingMain {
 
         Calculator calculator = new Calculator();
 
-        int number1 = 13, number2 = 7;
-        int calcResult = calculator.add(number1, number2);
+        int calcResult = calculator.add(13, 7);
 
-        if (calcResult == number1 + number2) {
+        if (calcResult == 20) {
             System.out.println("Calc: add OK");
         } else {
             System.out.println("Calc: add Error!");
         }
 
-        calcResult = calculator.subtract(number1, number2);
+        calcResult = calculator.subtract(13, 7);
 
-        if (calcResult == number1 - number2) {
+        if (calcResult == 6) {
             System.out.println("Calc: subtract OK");
         } else {
             System.out.println("Calc: subtract Error!");
