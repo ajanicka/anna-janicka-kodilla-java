@@ -4,6 +4,8 @@ import org.junit.*;
 import org.junit.rules.TestName;
 import java.util.ArrayList;
 
+import static org.junit.Assert.*;
+
 public class CollectionTestSuite {
 
     @Rule
@@ -23,28 +25,27 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        ArrayList<Integer> inputList = new ArrayList<>();
 
         //When
-        ArrayList<Integer> returnedList = oddNumbersExterminator.exterminate(inputList);
+        ArrayList<Integer> returnedList = oddNumbersExterminator.exterminate(new ArrayList<>());
 
         //Then
-        Assert.assertTrue(returnedList.isEmpty());
+        assertTrue(returnedList.isEmpty());
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        ArrayList<Integer> inputList = new ArrayList<>();
-        ArrayList<Integer> expectedList = new ArrayList<>();
 
+        ArrayList<Integer> inputList = new ArrayList<>();
         inputList.add(2);
         inputList.add(3);
         inputList.add(5);
         inputList.add(28);
         inputList.add(310);
 
+        ArrayList<Integer> expectedList = new ArrayList<>();
         expectedList.add(2);
         expectedList.add(28);
         expectedList.add(310);
@@ -53,6 +54,6 @@ public class CollectionTestSuite {
         ArrayList<Integer> returnedList = oddNumbersExterminator.exterminate(inputList);
 
         //Then
-        Assert.assertEquals(returnedList, expectedList);
+        assertEquals(returnedList, expectedList);
     }
 }
