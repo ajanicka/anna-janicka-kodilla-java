@@ -1,11 +1,11 @@
-package com.kodilla.testing.com.kodilla.testing.shape;
+package com.kodilla.testing.shape;
 
-public class Circle implements Shape {
+public class Triangle implements Shape {
 
     double field;
-    static final String shapeName = "circle";
+    static final String shapeName = "triangle";
 
-    public Circle(double i) {
+    public Triangle(double i) {
         this.field = i;
     }
 

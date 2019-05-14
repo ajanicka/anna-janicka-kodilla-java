@@ -1,7 +1,7 @@
 package com.kodilla.testing.shape;
 
-import com.kodilla.testing.com.kodilla.testing.shape.*;
 import org.junit.*;
+import static org.junit.Assert.*;
 
 public class ShapeCollectorTestSuite {
 
@@ -34,7 +34,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigure(new Square(5.5));
         //Then
-        Assert.assertEquals(1, shapeCollector.shapesList.size());
+        assertEquals(1, shapeCollector.shapesList.size());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class ShapeCollectorTestSuite {
         Shape shape = shapeCollector.getFigure(0);
 
         //Then
-        Assert.assertEquals("square", shape.getShapeName());
+        assertEquals("square", shape.getShapeName());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class ShapeCollectorTestSuite {
         String figures = shapeCollector.showFigures();
 
         //Then
-        Assert.assertEquals("square:25.0, triangle:15.0, circle:10.0", figures);
+        assertEquals("square:25.0, triangle:15.0, circle:10.0", figures);
     }
 
     @Test
@@ -75,8 +75,8 @@ public class ShapeCollectorTestSuite {
         boolean result = shapeCollector.removeFigure(checkingSquare);
 
         //Then
-        Assert.assertEquals(1, shapeCollector.shapesList.size());
-        Assert.assertEquals(true, result);
+        assertEquals(1, shapeCollector.shapesList.size());
+        assertTrue(result);
     }
 
     @Test
@@ -89,22 +89,22 @@ public class ShapeCollectorTestSuite {
         boolean result = shapeCollector.removeFigure(new Circle(7));
 
         //Then
-        Assert.assertEquals(2, shapeCollector.shapesList.size());
-        Assert.assertEquals(false, result);
-
+        assertEquals(2, shapeCollector.shapesList.size());
+        assertFalse(result);
     }
 
     @Test
     public void testTryingToGetFigureEmptyCollection() {
-        //Given
-        //When
         //Then
-        Assert.assertNull(shapeCollector.getFigure(0));
+        assertNull(shapeCollector.getFigure(0));
     }
 
     @Test
     public void testShowEmptyCollection() {
+        //When
         String figures = shapeCollector.showFigures();
-        Assert.assertEquals("", figures);
+
+        //Then
+        assertEquals("", figures);
     }
 }
