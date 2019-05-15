@@ -13,15 +13,6 @@ public class StatisticsCalculatorTestSuite {
     Statistics statisticsMock = mock(Statistics.class);
     StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
 
-    public List<String> createUsersList(int numberOfUsers) {
-        List<String> users = new ArrayList<>();
-        for (int i = 0; i < numberOfUsers; i++) {
-            users.add("user");
-        }
-
-        return users;
-    }
-
     @Test
     public void testCalculateAvgStatisticsZeroPosts() {
         //Given
@@ -129,5 +120,14 @@ public class StatisticsCalculatorTestSuite {
 
         //Then
         assertEquals(100, statisticsCalculator.usersNumber);
+    }
+
+    private List<String> createUsersList(int numberOfUsers) {
+        List<String> users = new ArrayList<>();
+        for (int i = 0; i < numberOfUsers; i++) {
+            users.add("user");
+        }
+
+        return users;
     }
 }
