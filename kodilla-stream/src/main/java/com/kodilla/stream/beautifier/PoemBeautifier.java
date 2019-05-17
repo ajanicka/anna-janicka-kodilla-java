@@ -1,4 +1,4 @@
-package com.kodilla.stream.com.kodilla.stream.beautifier;
+package com.kodilla.stream.beautifier;
 
 public class PoemBeautifier {
     public String beautify(String text, PoemDecorator decorator){
