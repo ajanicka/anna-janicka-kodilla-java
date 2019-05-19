@@ -26,23 +26,16 @@ public class WorldTestSuite {
         Continent america = new Continent();
         Continent eurasia = new Continent();
 
-        Country tanzania = new Country();
-        Country RPA = new Country();
-        Country chile = new Country();
-        Country dominicana = new Country();
-        Country russia = new Country();
-        Country poland = new Country();
+        Country tanzania = new Country(BigDecimal.valueOf(57000000));
+        Country RPA = new Country(BigDecimal.valueOf(60000000));
+        Country chile = new Country(BigDecimal.valueOf(18000000));
+        Country dominicana = new Country(BigDecimal.valueOf(10000000));
+        Country russia = new Country(BigDecimal.valueOf(144000000));
+        Country poland = new Country(BigDecimal.valueOf(28000000));
 
         world.addContinent(africa);
         world.addContinent(america);
         world.addContinent(eurasia);
-
-        tanzania.peopleQuantity = BigDecimal.valueOf(57000000);
-        RPA.peopleQuantity = BigDecimal.valueOf(60000000);
-        chile.peopleQuantity = BigDecimal.valueOf(18000000);
-        dominicana.peopleQuantity = BigDecimal.valueOf(10000000);
-        russia.peopleQuantity = BigDecimal.valueOf(144000000);
-        poland.peopleQuantity = BigDecimal.valueOf(28000000);
 
         africa.addCountry(tanzania);
         africa.addCountry(RPA);

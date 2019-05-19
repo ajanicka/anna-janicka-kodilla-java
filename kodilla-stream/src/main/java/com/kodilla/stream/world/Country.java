@@ -4,7 +4,11 @@ import java.math.BigDecimal;
 
 public class Country {
 
-    BigDecimal peopleQuantity = BigDecimal.ZERO;
+    private BigDecimal peopleQuantity = BigDecimal.ZERO;
+
+    public Country(BigDecimal peopleQuantity) {
+        this.peopleQuantity = peopleQuantity;
+    }
 
     public BigDecimal getPeopleQuantity(){
         return peopleQuantity;
