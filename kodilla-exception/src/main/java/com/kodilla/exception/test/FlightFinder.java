@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class FlightFinder {
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
         Map<String, Boolean> map = new HashMap<>();
+        map.put("Airport1", true);
+        map.put("Airport2", true);
 
         if (!map.containsKey(flight.getArrivalAirport())) {
             throw new RouteNotFoundException();
         }
 
-        if (!map.containsKey(flight.getDepartureAirport())) {
-            throw new RouteNotFoundException();
-        }
+        return map.get(flight.getArrivalAirport());
     }
 }
