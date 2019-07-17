@@ -5,6 +5,7 @@ public class BuyingRequest {
 
     public BuyingRequest(User user) {
         this.user = user;
+        System.out.println("class: BuyingRequest");
     }
 
     public User getBuyingUser() {

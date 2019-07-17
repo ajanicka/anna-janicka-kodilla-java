@@ -11,6 +11,8 @@ public class ProductOrderService {
         this.productInformationService = productInformationService;
         this.buyingService = buyingService;
         this.buyingRepository = buyingRepository;
+
+        System.out.println("class: ProductOrderService");
     }
 
     public BuyingDto process(final BuyingRequest buyingRequest) {

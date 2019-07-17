@@ -8,5 +8,7 @@ public class User {
     public User(String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
+
+        System.out.println("class: User");
     }
 }
