@@ -2,13 +2,7 @@ package com.kodilla.good.patterns.food2door;
 
 class OrderService {
 
-    private Producer producer;
-
-    OrderService(Producer producer) {
-        this.producer = producer;
-    }
-
-    boolean process(Order order) {
+    boolean newOrder(Producer producer, Order order) {
         return producer.process(order);
     }
 }
