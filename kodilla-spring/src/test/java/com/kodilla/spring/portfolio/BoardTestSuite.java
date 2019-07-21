@@ -17,7 +17,7 @@ public class BoardTestSuite {
     public void testTaskAdd() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Board board = (Board) context.getBean(Board.class);
+        Board board = context.getBean(Board.class);
 
         //When
         board.toDoList.tasks.add("TODO_TASK");
