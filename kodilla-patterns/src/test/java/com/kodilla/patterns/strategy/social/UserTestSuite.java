@@ -3,6 +3,8 @@ package com.kodilla.patterns.strategy.social;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 public class UserTestSuite {
     @Test
     public void testDefaultSharingStrategies() {
@@ -10,7 +12,7 @@ public class UserTestSuite {
         User steven = new Millenials("Steven Links");
 
         //Then
-        Assert.assertEquals("Snapchat", steven.sharePost());
+        assertEquals("Snapchat", steven.sharePost());
     }
 
     @Test
@@ -22,6 +24,6 @@ public class UserTestSuite {
         steven.setSocialPublisher(new FacebookPublisher());
 
         //Then
-        Assert.assertEquals("Facebook", steven.sharePost());
+        assertEquals("Facebook", steven.sharePost());
     }
 }
