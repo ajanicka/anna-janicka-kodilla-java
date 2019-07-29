@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
+import static org.junit.Assert.*;
+
 public class LibraryTestSuite {
 
     @Test
@@ -41,8 +43,8 @@ public class LibraryTestSuite {
         library.books.clear();
 
         //Then
-        Assert.assertEquals(0, library.books.size());
-        Assert.assertEquals(0, clonedLibrary.books.size());
-        Assert.assertEquals(3, deepClonedLibrary.books.size());
+        assertEquals(0, library.books.size());
+        assertEquals(0, clonedLibrary.books.size());
+        assertEquals(3, deepClonedLibrary.books.size());
     }
 }
