@@ -1,8 +1,9 @@
 package com.kodilla.patterns.prototype;
 
-import org.junit.Assert;
 import org.junit.Test;
 import java.util.stream.IntStream;
+
+import static org.junit.Assert.*;
 
 public class BoardTestSuite {
     @Test
@@ -57,10 +58,10 @@ public class BoardTestSuite {
         System.out.println(board);
         System.out.println(clonedBoard);
         System.out.println(deepClonedBoard);
-        Assert.assertEquals(2, board.getLists().size());
-        Assert.assertEquals(2, clonedBoard.getLists().size());
-        Assert.assertEquals(3, deepClonedBoard.getLists().size());
-        Assert.assertEquals(clonedBoard.getLists(), board.getLists());
-        Assert.assertNotEquals(deepClonedBoard.getLists(), board.getLists());
+        assertEquals(2, board.getLists().size());
+        assertEquals(2, clonedBoard.getLists().size());
+        assertEquals(3, deepClonedBoard.getLists().size());
+        assertEquals(clonedBoard.getLists(), board.getLists());
+        assertNotEquals(deepClonedBoard.getLists(), board.getLists());
     }
 }
