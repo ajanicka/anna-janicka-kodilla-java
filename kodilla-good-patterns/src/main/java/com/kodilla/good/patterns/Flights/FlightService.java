@@ -6,29 +6,25 @@ import java.util.stream.Collectors;
 
 public class FlightService {
 
-    Set<String> findAllFlightsFrom(List<Flight> flights, String from) {
-        System.out.println("Flights from " + from +":");
-
+    Set<Flight> findAllFlightsFrom(List<Flight> flights, String from) {
         return flights.stream()
                 .filter(flight -> flight.from.equals(from))
-                .map(flight -> flight.to)
                 .collect(Collectors.toSet());
     }
 
-    Set<String> findAllFlightsTo(List<Flight> flights, String to) {
-        System.out.println("Flights to " + to +":");
-
+    Set<Flight> findAllFlightsTo(List<Flight> flights, String to) {
         return flights.stream()
                 .filter(flight -> flight.to.equals(to))
-                .map(flight -> flight.from)
                 .collect(Collectors.toSet());
     }
 
-    void findAllTransferFlightsFromTo(List<Flight> flights, String from, String to) {
-        List<Flight> flightsTo = flights.stream()
-                .filter(flight-> flight.to.equals((to)))
-                .collect(Collectors.toList());
-
-
+    Set<TransferFlight> findAllTransferFlightsFromTo(List<Flight> flights, String from, String to) {
+        return findAllFlightsTo(flights, to)
+                .stream()
+                .flatMap(flight -> findAllFlightsTo(flights, flight.from).stream())
+                .distinct()
+                .filter(flight -> flight.from.equals(from))
+                .map(flight -> new TransferFlight(flight.from, flight.to, to))
+                .collect(Collectors.toSet());
     }
 }

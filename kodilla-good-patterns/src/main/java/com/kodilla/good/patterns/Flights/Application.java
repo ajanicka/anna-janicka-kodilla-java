@@ -6,7 +6,13 @@ class Application {
         FlightsRetriever retriever = new FlightsRetriever();
 
         FlightService service = new FlightService();
-        service.findAllFlightsFrom(retriever.retrieve(), "Wrocław");
-        service.findAllFlightsTo(retriever.retrieve(), "Wrocław");
+        System.out.println("Flights from Wrocław:");
+        service.findAllFlightsFrom(retriever.retrieve(), "Wrocław").stream().forEach(System.out::println);
+
+        System.out.println("\nFlights to Wrocław:");
+        service.findAllFlightsTo(retriever.retrieve(), "Wrocław").stream().forEach(System.out::println);
+
+        System.out.println("\nTransfer flights from Wrocław to Gdańsk:");
+        service.findAllTransferFlightsFromTo(retriever.retrieve(), "Wrocław", "Gdańsk").stream().forEach(System.out::println);
     }
 }

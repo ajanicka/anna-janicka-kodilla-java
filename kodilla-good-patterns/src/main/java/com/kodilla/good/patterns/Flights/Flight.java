@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.Flights;
 
-import java.time.LocalTime;
-
 class Flight {
     String from;
     String to;
@@ -9,5 +7,13 @@ class Flight {
     public Flight(String from, String to) {
         this.from = from;
         this.to = to;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                '}';
     }
 }
