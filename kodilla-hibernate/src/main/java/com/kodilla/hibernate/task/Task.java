@@ -12,6 +12,9 @@ public class Task {
     private Date created;
     private int duration;
 
+    public Task() {
+    }
+
     public Task(String description, int duration) {
         this.description = description;
         this.created = new Date();
@@ -37,7 +40,7 @@ public class Task {
         return created;
     }
 
-    @Column(name="DURA  TION")
+    @Column(name="DURATION")
     public int getDuration() {
         return duration;
     }
