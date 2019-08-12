@@ -28,11 +28,11 @@ public class TaskListDaoTestSuite {
         taskListDao.save(taskList);
 
         //Then
-        int id = taskList.getId();
         List<TaskList> readTaskList = taskListDao.findByListName(LISTNAME);
         Assert.assertEquals(1, readTaskList.size());
 
         //CleanUp
+        int id = taskList.getId();
         taskListDao.deleteById(id);
     }
 }
