@@ -1,17 +1,19 @@
 package com.kodilla.hibernate.tasklist;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import com.kodilla.hibernate.task.Task;
 
-@Entity(name="TASKLISTS")
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity(name = "TASKLISTS")
 public class TaskList {
 
-    int id;
-    String listName;
-    String description;
+    private int id;
+    private String listName;
+    private String description;
+    private List<Task> tasks = new ArrayList<>();
 
     public TaskList() {
     }
@@ -19,6 +21,10 @@ public class TaskList {
     public TaskList(String listName, String description) {
         this.listName = listName;
         this.description = description;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     private void setId(int id) {
@@ -33,20 +39,30 @@ public class TaskList {
         this.description = description;
     }
 
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
     @Id
-    @Column(name="ID")
+    @Column(name = "ID")
     @NotNull
     @GeneratedValue
     public int getId() {
         return id;
     }
 
-    @Column(name="LISTNAME")
+    @Column(name = "LISTNAME")
     public String getListName() {
         return listName;
     }
 
-    @Column(name="DESCRIPTION")
+    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }

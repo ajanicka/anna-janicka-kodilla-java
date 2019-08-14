@@ -1,16 +1,40 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name="TASKS")
+@Table(name = "TASKS")
 public class Task {
     private int id;
     private String description;
     private Date created;
     private int duration;
+    private TaskFinancialDetails taskFinancialDetails;
+    private TaskList taskList;
+
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASKS_FINANCIALS_ID")
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
 
     public Task() {
     }
@@ -24,23 +48,23 @@ public class Task {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name="ID", unique=true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
-    @Column(name="DESCRIPTION")
+    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
 
     @NotNull
-    @Column(name="CREATED")
+    @Column(name = "CREATED")
     public Date getCreated() {
         return created;
     }
 
-    @Column(name="DURATION")
+    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
     }
