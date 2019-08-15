@@ -107,7 +107,6 @@ public class TaskListDaoTestSuite {
         List<Task> shortTasks = taskDao.retrieveShortTasks();
         List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
 
-
         //Then
         try {
             Assert.assertEquals(1, longTasks.size());
