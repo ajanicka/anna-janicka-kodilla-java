@@ -86,7 +86,6 @@ public class CompanyDaoTestSuite {
         greyMatter.getEmployees().add(lindaKovalsky);
         greyoMaster.getEmployees().add(lindaJ);
 
-
         johnSmith.getCompanies().add(softwareMachine);
         johnSmith.getCompanies().add(greyMatter);
         stephanieClarckson.getCompanies().add(dataMaesters);
