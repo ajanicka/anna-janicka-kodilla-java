@@ -5,6 +5,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Company.retrieveCompanyByPartname",
+        query = "FROM Company WHERE name LIKE CONCAT('%', :PARTNAME, '%')"
+)
+
+
 @NamedNativeQuery(
         name = "Company.getCompaniesWithThreeFirstLetters",
         query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :PARTNAME",
