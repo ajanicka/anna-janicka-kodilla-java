@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 public class PizzaOrderTestSuite {
     @Test
-    public void testBasicTaxiOrderGetCost() {
+    public void testBasicPizzaOrderGetCost() {
         // Given
         PizzaOrder theOrder = new BasicPizzaOrder();
         // When
@@ -23,7 +23,7 @@ public class PizzaOrderTestSuite {
     }
 
     @Test
-    public void testBasicTaxiOrderGetDescription() {
+    public void testBasicPizzaOrderGetDescription() {
         // Given
         PizzaOrder theOrder = new BasicPizzaOrder();
         // When
