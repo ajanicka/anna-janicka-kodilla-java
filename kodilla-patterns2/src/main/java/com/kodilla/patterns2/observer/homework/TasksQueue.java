@@ -11,6 +11,7 @@ public class TasksQueue implements Observable {
     public TasksQueue(String studentName) {
         observers = new ArrayList<>();
         tasks = new ArrayList<>();
+        this.studentName = studentName;
     }
 
     public void addTask(Task task) {
